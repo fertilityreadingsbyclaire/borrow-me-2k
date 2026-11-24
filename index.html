@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Abeg Borrow Me 2K 🥲</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#160d20,#32132e,#551b35);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 430px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 25px;
+    padding: 28px 22px;
+    text-align: center;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+}
+
+.emoji {
+    font-size: 65px;
+    margin-bottom: 15px;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%,100% {transform:translateY(0);}
+    50% {transform:translateY(-12px);}
+}
+
+h1 {
+    font-size: 29px;
+    margin-bottom: 15px;
+}
+
+h1 span {
+    color: #ff91b8;
+}
+
+.subtitle {
+    color: #e7cbd8;
+    line-height: 1.7;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.amount {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+.amount h2 {
+    color: #ff91b8;
+    font-size: 42px;
+}
+
+.amount p {
+    font-size: 12px;
+    color: #ddd;
+    margin-top: 5px;
+}
+
+.reasons {
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.reasons h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.reason {
+    background: rgba(255,255,255,0.08);
+    padding: 13px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.yes {
+    background: #ff75a9;
+    color: white;
+}
+
+.no {
+    background: rgba(255,255,255,0.12);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+#response {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255,145,184,0.12);
+    border-radius: 12px;
+    line-height: 1.7;
+    font-size: 14px;
+    display: none;
+}
+
+.progress {
+    background: rgba(255,255,255,0.15);
+    height: 10px;
+    border-radius: 20px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.bar {
+    height: 100%;
+    width: 0%;
+    background: #ff75a9;
+    transition: 1s;
+}
+
+.footer {
+    font-size: 11px;
+    color: #bdaab5;
+    margin-top: 25px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="emoji">🥲</div>
+
+<h1>Abeg Borrow Me <span>2K</span></h1>
+
+<p class="subtitle">
+Please, before you scroll away, I have an important financial
+matter to discuss with you. 😭
+</p>
+
+<div class="amount">
+<h2>₦2,000</h2>
+<p>That's all I'm asking for. Just two thousand naira. 😭</p>
+</div>
+
+<div class="reasons">
+
+<h3>WHY I NEED THIS MONEY 🥺</h3>
+
+<div class="reason">
+🍛 <b>Reason 1:</b><br>
+Hunger has become a full-time employee in my life.
+I need to settle this matter urgently.
+</div>
+
+<div class="reason">
+📱 <b>Reason 2:</b><br>
+My financial situation and my data subscription
+are currently not on speaking terms.
+</div>
+
+<div class="reason">
+🧠 <b>Reason 3:</b><br>
+I have been calculating my finances since morning.
+Even my calculator is tired of me.
+</div>
+
+<div class="reason">
+❤️ <b>Reason 4:</b><br>
+I believe in you. You are the chosen one.
+The person heaven has assigned to this transaction.
+</div>
+
+</div>
+
+<h3>PLEASE CONSIDER MY REQUEST 😭</h3>
+
+<div class="progress">
+<div class="bar" id="bar"></div>
+</div>
+
+<p id="progressText" style="font-size:12px;margin-top:8px;">
+Financial assistance received: ₦0 / ₦2,000
+</p>
+
+<button class="yes" onclick="yes()">
+🥹 I WILL SEND THE MONEY
+</button>
+
+<button class="no" onclick="no()">
+😭 I DON'T HAVE MONEY
+</button>
+
+<button class="no" onclick="beg()">
+🙏 PLEASE BEG ME AGAIN
+</button>
+
+<div id="response"></div>
+
+<p class="footer">
+Designed with tears, hope and financial instability. 😂
+</p>
+
+</div>
+
+<script>
+
+let attempts = 0;
+
+function show(message) {
+    let box = document.getElementById("response");
+    box.style.display = "block";
+    box.innerHTML = message;
+}
+
+function yes() {
+
+    document.getElementById("bar").style.width = "100%";
+
+    document.getElementById("progressText").innerHTML =
+    "Financial assistance promised! 🎉";
+
+    show(`
+    <h2>😭❤️ GOD BLESS YOU!</h2>
+    <br>
+    You have officially restored my faith in humanity.
+    <br><br>
+    May your account balance never experience dryness.
+    May unexpected alerts locate you.
+    <br><br>
+    You are a legend! 🥹
+    <br><br>
+    <b>Thank you for considering my request!</b>
+    `);
+
+}
+
+function no() {
+
+    attempts++;
+
+    let messages = [
+
+    "Omooo 😭 Even you? Please reconsider. Just ₦2k!",
+    
+    "I understand, but have you checked your other account? 🥲",
+    
+    "Please don't abandon me at this critical financial moment. 😭",
+    
+    "Remember when people said money cannot buy happiness? Let's test that theory with ₦2k. 😂",
+    
+    "I promise to appreciate this gesture for the rest of my existence. 🥹"
+
+    ];
+
+    show(messages[(attempts-1)%messages.length]);
+
+}
+
+function beg() {
+
+    show(`
+    🥺🥺🥺🥺🥺
+    <br><br>
+    Please now!
+    <br><br>
+    I'm not asking for a house.
+    I'm not asking for a car.
+    I'm not asking for an iPhone.
+    <br><br>
+    JUST TWO THOUSAND NAIRA!
+    <br><br>
+    Abeg have mercy on my financial condition. 😭
+    `);
+
+}
+
+</script>
+
+</body>
+</html>
